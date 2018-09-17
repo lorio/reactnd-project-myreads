@@ -5,6 +5,7 @@ import BookShelfChanger from './BookShelfChanger'
 import './App.css'
 
 class Book extends Component {
+  const book = this.props;
   
   render(){
     return (
@@ -13,7 +14,8 @@ class Book extends Component {
           <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url("${this.props.book.imageLinks.thumbnail}")` }}></div>
           <div className="book-shelf-changer">
             <BookShelfChanger
-              book = {book, updateShelf}
+              {/*const book = {book}*/}
+              book = {book.updateShelf}
             />
           </div>
         </div>
