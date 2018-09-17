@@ -6,7 +6,8 @@ import './App.css'
 
 class BooksApp extends React.Component {
   state = {
-   books: [] 
+   books: [] /*,
+   shelf: {option}*/
   }
   componentDidMount() {
     BooksAPI.getAll().then((books) => {
@@ -20,9 +21,13 @@ class BooksApp extends React.Component {
      * pages, as well as provide a good URL they can bookmark and share.
      */
    /* showSearchPage: false*/
-  moveShelf = (book, shelf) => {
+  /*updateShelf = (option) => {
+    this.setState(book, shelf);
+    }
+  };*/
+  /*moveShelf = (book, shelf) => {
     BooksAPI.update(book, shelf);
-  }
+  }*/
   render() {
     return (
       <div className="app">
