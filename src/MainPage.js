@@ -5,7 +5,7 @@ import Book from './Book'
 import './App.css'
 
 class MainPage extends Component {
- render() { console.log(this.props.books)
+ render() { 
     return (
       <div className="list-books">
         <div className="list-books-title">
@@ -23,8 +23,8 @@ class MainPage extends Component {
                       .map(book => (
                         <li key={book.id}>
                           <Book
-                            book = {book}
-                            moveShelf = {this.props.updateShelf}
+                            book = {book} 
+                            updateShelf = {this.props.updateShelf}
                           />
                         </li>
                         ))

@@ -10,10 +10,10 @@ class BooksApp extends React.Component {
    books: [] ,   shelf: 'none'
   }
 
-  handleChange = (event) => {
+ /* moveSh = (event) => {
     let book;
     this.setState({value: book.shelf})
-  }  
+  }  */
 
   updateShelf = (book, shelf) => {
     let books;

@@ -7,16 +7,14 @@ import './App.css'
 class Book extends Component {
   
   render(){
-    const { book } = this.props.book
-    console.log(book)
+    console.log(this.props.book.shelf)
     return (
       <div className="book">
         <div className="book-top">
           <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${this.props.book.imageLinks.thumbnail})` }}></div>
           <div className="book-shelf-changer">
             <select
-              value = {this.shelf}
-              onChange={this.handleChange}
+              onChange={this.props.book.updateShelf}
               >
                 <option value="move" disabled>Move to...</option>
                 <option value="currentlyReading">Currently Reading</option>
@@ -27,8 +25,8 @@ class Book extends Component {
            
           </div>
         </div>
-        <div className="book-title">{this.title}</div>
-        <div className="book-authors">{this.authors}</div>
+        <div className="book-title">{this.props.book.title}</div>
+        <div className="book-authors">{this.props.book.authors}</div>
       </div>
     )
   }
