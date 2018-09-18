@@ -30,7 +30,7 @@ class BooksApp extends React.Component {
         return book;
       }
     })
-    console.log(this.props.updateShelf)
+    
     this.setState((prevState, props) => {
       console.log(this.state.value)
     return { shelf: prevState.shelfChange.value }
