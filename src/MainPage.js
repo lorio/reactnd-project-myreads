@@ -24,7 +24,7 @@ class MainPage extends Component {
                         <li key={book.id}>
                           <Book
                             book = {book}
-                            moveShelf = {this.props.moveShelf}
+                            moveShelf = {this.props.updateShelf}
                           />
                         </li>
                         ))

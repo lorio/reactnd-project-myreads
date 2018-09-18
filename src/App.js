@@ -5,9 +5,22 @@ import SearchPage from './SearchPage'
 import './App.css'
 
 class BooksApp extends React.Component {
+
   state = {
-   books: [] /*,
-   shelf: {option}*/
+   books: [] ,   shelf: 'none'
+  }
+
+  handleChange = (event) => {
+    let book;
+    this.setState({value: book.shelf})
+  }  
+
+  updateShelf = (book, shelf) => {
+    let books;
+    books = this.state.books.map(book => {
+     /* key={book, id}*/
+      return {...book, shelf}
+    })
   }
   componentDidMount() {
     BooksAPI.getAll().then((books) => {
@@ -21,12 +34,9 @@ class BooksApp extends React.Component {
      * pages, as well as provide a good URL they can bookmark and share.
      */
    /* showSearchPage: false*/
-  /*updateShelf = (option) => {
-    this.setState(book, shelf);
-    }
-  };*/
+
   /*moveShelf = (book, shelf) => {
-    BooksAPI.update(book, shelf);
+    BooksAPI.update(book, shelf).then(data);
   }*/
   render() {
     return (
