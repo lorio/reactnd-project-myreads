@@ -10,18 +10,33 @@ class BooksApp extends React.Component {
    books: [] ,   shelf: 'none'
   }
 
- /* moveSh = (event) => {
-    let book;
-    this.setState({value: book.shelf})
-  }  */
-
-  updateShelf = (book, shelf) => {
-    let books;
-    books = this.state.books.map(book => {
-     /* key={book, id}*/
-      return {...book, shelf}
+ /* const shelfChange = 
+    document.getElementsByTagName('select');
+  let selection = shelfChange.value
+  handleChange = (e) => {
+    if(shelfChange == e.target.value) {
+      this.setState({ book, shelf})
     })
-  }
+  };
+*/
+  updateShelf = (book, shelf) => {
+    let newShelf;
+    let books;
+    books = this.state.books.map((book, e) => {
+      if(e.target === book.key) {
+        newShelf = book.shelf;
+        return {...book, shelf}
+      } else {
+        return book;
+      }
+    })
+    console.log(this.props.updateShelf)
+    this.setState((prevState, props) => {
+      console.log(this.state.value)
+    return { shelf: prevState.shelfChange.value }
+    }); 
+  };
+ 
   componentDidMount() {
     BooksAPI.getAll().then((books) => {
       this.setState({ books })
