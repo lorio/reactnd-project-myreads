@@ -1,20 +1,24 @@
 import React, { Component } from 'react';
 //import { Link } from 'react-router-dom'
 import * as BooksAPI from './BooksAPI'
-
+import PropTypes from 'prop-types'
 import './App.css'
 
 class Book extends Component {
-  
+   static propTypes = {
+        book: PropTypes.object.isRequired
+       /* updateShelf: PropTypes.func.isRequired*/
+    }    
   render(){
-    console.log(this.props.book.shelf)
+    const { book, shelf, updateShelf } = this.props
+    console.log(this.updateShelf)
     return (
       <div className="book">
         <div className="book-top">
-          <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${this.props.book.imageLinks.thumbnail})` }}></div>
+          <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.thumbnail})` }}></div>
           <div className="book-shelf-changer">
-            <select
-              onChange={this.props.book.updateShelf}
+            <select value={book.shelf ? book.shelf : 'none'} 
+              onChange={book.shelf.updateShelf(book, shelf)}
               >
                 <option value="move" disabled>Move to...</option>
                 <option value="currentlyReading">Currently Reading</option>
@@ -25,8 +29,8 @@ class Book extends Component {
            
           </div>
         </div>
-        <div className="book-title">{this.props.book.title}</div>
-        <div className="book-authors">{this.props.book.authors}</div>
+        <div className="book-title">{book.title}</div>
+        <div className="book-authors">{book.authors}</div>
       </div>
     )
   }

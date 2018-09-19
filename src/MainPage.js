@@ -43,6 +43,7 @@ class MainPage extends Component {
                         <li key={book.id}>
                           <Book
                             book = {book}
+                            updateShelf = {book.updateShelf}
                           />
                         </li>
                         ))

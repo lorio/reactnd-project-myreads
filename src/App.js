@@ -20,7 +20,7 @@ class BooksApp extends React.Component {
   };
 */
   updateShelf = (book, shelf) => {
-    let newShelf;
+    /*let newShelf;
     let books;
     books = this.state.books.map((book, e) => {
       if(e.target === book.key) {
@@ -29,12 +29,16 @@ class BooksApp extends React.Component {
       } else {
         return book;
       }
-    })
-    
-    this.setState((prevState, props) => {
-      console.log(this.state.value)
-    return { shelf: prevState.shelfChange.value }
-    }); 
+    })*/
+   /*https://stackoverflow.com/questions/50531678/react-pass-function-as-prop */
+    this.setState((prevState) => {
+      const booksClone = prevState.books.filter(
+        b => b.id !== book.id);
+        booksClone.push({ ...book, shelf });
+       return { books: booksClone }
+    /*return { shelf: prevState.newShelf.value }*/
+    });
+    BooksAPI.update(book, shelf); 
   };
  
   componentDidMount() {
@@ -58,6 +62,8 @@ class BooksApp extends React.Component {
       <div className="app">
         <MainPage
           books={this.state.books}
+          book={this.state.book}
+          updateShelf = {this.props.updateShelf}
         />
       </div>
     )
