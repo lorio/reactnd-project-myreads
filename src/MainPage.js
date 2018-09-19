@@ -43,7 +43,7 @@ class MainPage extends Component {
                         <li key={book.id}>
                           <Book
                             book = {book}
-                            updateShelf = {book.updateShelf}
+                            updateShelf = {this.props.updateShelf}
                           />
                         </li>
                         ))
@@ -62,6 +62,7 @@ class MainPage extends Component {
                         <li key={book.id}>
                           <Book
                             book = {book}
+                            updateShelf = {this.props.updateShelf}
                           />
                         </li>
                         ))

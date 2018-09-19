@@ -19,7 +19,7 @@ class BooksApp extends React.Component {
     })
   };
 */
-  updateShelf = (book, shelf) => {
+  /*updateShelf = (book, shelf) => {*/
     /*let newShelf;
     let books;
     books = this.state.books.map((book, e) => {
@@ -31,15 +31,15 @@ class BooksApp extends React.Component {
       }
     })*/
    /*https://stackoverflow.com/questions/50531678/react-pass-function-as-prop */
-    this.setState((prevState) => {
+   /* this.setState((prevState) => {
       const booksClone = prevState.books.filter(
         b => b.id !== book.id);
         booksClone.push({ ...book, shelf });
        return { books: booksClone }
     /*return { shelf: prevState.newShelf.value }*/
-    });
+   /* });
     BooksAPI.update(book, shelf); 
-  };
+  };*/
  
   componentDidMount() {
     BooksAPI.getAll().then((books) => {
@@ -54,16 +54,20 @@ class BooksApp extends React.Component {
      */
    /* showSearchPage: false*/
 
-  /*moveShelf = (book, shelf) => {
-    BooksAPI.update(book, shelf).then(data);
-  }*/
+  updateShelf = (book, shelf) => {
+    BooksAPI.update(book, shelf).then(() => {
+      BooksAPI.getAll().then((books) => {
+        this.setState({books})
+      })
+    })
+  }
   render() {
     return (
       <div className="app">
         <MainPage
           books={this.state.books}
           book={this.state.book}
-          updateShelf = {this.props.updateShelf}
+          updateShelf = {this.updateShelf}
         />
       </div>
     )
