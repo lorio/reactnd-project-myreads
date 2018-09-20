@@ -27,13 +27,19 @@ class BooksApp extends React.Component {
   render() {
     return (
       <div className="app">
-      <Route exact path='/' component={MainPage}/>
-      <MainPage
-        books={this.state.books}
-        book={this.state.book}
-        updateShelf = {this.updateShelf}
-        />
-        <Route path='/search' component={SearchPage}/>
+        <Route exact path='/' render={() => (
+          <MainPage
+            books={this.state.books}
+            book={this.state.book}
+            updateShelf = {this.updateShelf}
+            />
+          )} />
+          <Route path='/search' render={() => (
+            <SearchPage
+              updateShelf={this.updateShelf}
+              books={this.props.books}
+              />
+          )} />  
       </div>
     )
   }
