@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
-/*import * as BooksAPI from './BooksAPI'*/
+import * as BooksAPI from './BooksAPI'
 /*import escapeRegExp from 'escape-string-regexp'*/
 import Book from './Book'
 import './App.css'
@@ -10,17 +10,21 @@ class SearchPage extends Component {
     query: '',
     searchResults: []
   }
-  
-  render(){
-    /*const { query } = this.state
-    let { books } = this.props*/
-    /*let searchResults;
-    if (query) {
-      const match = searchResults: searchResults}
-      searchResults = books.filter((book) => 
+    showResults = (query) => {
+    if(query) {
+      BooksAPI.search(query).then((searchResults) => {
+        this.setState({ searchResults: searchResults })
+        })  
       } else {
-        searchResults = "No results found"
-      }*/
+        console.log('no results');
+        this.setState({ searchResults: [] })
+        }       
+      }
+  updateQuery = (query) => {
+    this.setState({ query: query })
+    this.showResults(query);
+  }
+  render(){
     return (
       <div className="search-books">
         <div className="search-books-bar">
@@ -32,8 +36,8 @@ class SearchPage extends Component {
               <input 
                 type="text" 
                 placeholder="Search by title or author"
-                value={this.state.query}
-                onChange={(event) => this.props.showResults(
+                value={undefined}
+                onChange={(event) => this.updateQuery(
                   event.target.value)}
               />
               </div>

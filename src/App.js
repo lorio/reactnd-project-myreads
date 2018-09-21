@@ -16,19 +16,6 @@ class BooksApp extends React.Component {
       this.setState({ books: books })
     })
   }
-  updateQuery = (query) => {
-    this.setState({ query: query })
-    this.showResults(query);
-  }
-  showResults = (query) => {
-    if(query) {
-      BooksAPI.search(query).then((searchResults) => {
-        this.setState({ searchResults: searchResults })
-        })  
-      } else {
-        console.log('no results');
-        }  /*this.setState({ searchResults: [] })     */
-      }
 
   updateShelf = (book, shelf) => {
     BooksAPI.update(book, shelf).then(() => {
@@ -50,7 +37,7 @@ class BooksApp extends React.Component {
           <Route path='/search' render={() => (
             <SearchPage
               /*updateShelf={this.updateShelf}*/
-              updateQuery={this.state.showResults}
+              updateQuery={this.state.updateQuery}
               books={this.state.books}
               />
           )} />  

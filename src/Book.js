@@ -10,16 +10,19 @@ class Book extends Component {
        /* updateShelf: PropTypes.func.isRequired*/
     }    
   render(){
-    const { book, shelf, updateShelf, currentShelf } = this.props
+    const { updateShelf, currentShelf } = this.props
+    let displayThumbnail = this.props.book.imageLinks ?
+      this.props.book.imageLinks.thumbnail :
+      '';
     console.log(this.updateShelf)
     return (
       <div className="book">
         <div className="book-top">
-          <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.thumbnail})` }}></div>
+          <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url("${displayThumbnail}")` }}></div>
           <div className="book-shelf-changer">
             <select value={currentShelf} 
               onChange={(event) => updateShelf(
-                book, event.target.value
+                this.props.book, event.target.value
                 )}
               >
                 <option value="move" disabled>Move to...</option>
@@ -31,8 +34,8 @@ class Book extends Component {
            
           </div>
         </div>
-        <div className="book-title">{book.title}</div>
-        <div className="book-authors">{book.authors}</div>
+        <div className="book-title">{this.props.book.title}</div>
+        <div className="book-authors">{this.props.book.authors}</div>
       </div>
     )
   }
