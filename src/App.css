@@ -101,6 +101,9 @@ body, .app {
 
 .search-books-results {
   padding: 80px 10px 20px;
+  display: flex;
+  list-style-type: none;
+  flex-wrap: wrap;
 }
 
 /* books grid */
@@ -117,6 +120,9 @@ body, .app {
 .books-grid li {
   padding: 10px 15px;
   text-align: left;
+}
+.search-books-results .books-grid li {
+  padding: 20px 25px;
 }
 
 .book {

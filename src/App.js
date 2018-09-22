@@ -16,7 +16,7 @@ class BooksApp extends React.Component {
       this.setState({ books: books })
     })
   }
-
+//update the book's shelf option on search and main books display "single source of truth"
   updateShelf = (book, shelf) => {
     BooksAPI.update(book, shelf).then(() => {
       BooksAPI.getAll().then((books) => {
@@ -36,7 +36,7 @@ class BooksApp extends React.Component {
           )} />
           <Route path='/search' render={() => (
             <SearchPage
-              /*updateShelf={this.updateShelf}*/
+              updateShelf={this.updateShelf}
               updateQuery={this.state.updateQuery}
               books={this.state.books}
               />

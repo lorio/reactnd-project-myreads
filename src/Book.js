@@ -6,8 +6,8 @@ import './App.css'
 
 class Book extends Component {
    static propTypes = {
-        book: PropTypes.object.isRequired
-       /* updateShelf: PropTypes.func.isRequired*/
+        book: PropTypes.object.isRequired,
+        updateShelf: PropTypes.func.isRequired
     }    
   render(){
     const { updateShelf, currentShelf } = this.props

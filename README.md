@@ -1,15 +1,11 @@
 # MyReads Project
 
-This is the starter template for the final assessment project for Udacity's React Fundamentals course. The goal of this template is to save you time by providing a static example of the CSS and HTML markup that may be used, but without any of the React code that is needed to complete the project. If you choose to start with this template, your job will be to add interactivity to the app by refactoring the static code in this template.
+This is the starter template for the final assessment project for Udacity's React Fundamentals course. The goal of this template is to save you time by providing a static example of the CSS and HTML markup that may be used, but without any of the React code that is needed to complete the project. 
 
-Of course, you are free to start this project from scratch if you wish! Just be sure to use [Create React App](https://github.com/facebookincubator/create-react-app) to bootstrap the project.
+You must add interactivity to the app by refactoring the static code in this template.
 
-## TL;DR
-
-To get started developing right away:
-
-* install all project dependencies with `npm install`
-* start the development server with `npm start`
+1. Install all project dependencies with `npm install`
+2. Start the development server with `npm start`
 
 ## What You're Getting
 ```bash
@@ -33,7 +29,7 @@ To get started developing right away:
     └── index.js # You should not need to modify this file. It is used for DOM rendering only.
 ```
 
-Remember that good React design practice is to create new JS files for each component and use import/require statements to include them where they are needed.
+3. Good React design practice is to create new JS files for each component and  import/export to include them where they are needed. Here you can cut and paste sections of App.js into components. I chose to create a MainPage.js for  the index or / and SearchPage for the search input and results listing, and a Book component as child of Search and Main.
 
 ## Backend Server
 
@@ -76,7 +72,8 @@ search(query)
 
 * query: `<String>`
 * Returns a Promise which resolves to a JSON object containing a collection of a maximum of 20 book objects.
-* These books do not know which shelf they are on. They are raw results only. You'll need to make sure that books have the correct state while on the search page.
+* 
+4. Books do not know which shelf they are on. They are raw results only. You'll need to make sure that books have the correct state while on the search page. User must be able to change the shelf state on either page.
 
 ## Important
 The backend API uses a fixed set of cached search results and is limited to a particular set of search terms, which can be found in [SEARCH_TERMS.md](SEARCH_TERMS.md). That list of terms are the _only_ terms that will work with the backend, so don't be surprised if your searches for Basket Weaving or Bubble Wrap don't come back with any results.
@@ -90,3 +87,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
 
 For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## Additional Resources
+Student forums on Slack, lessons, and a mentor session were helpful in completing this project. I also relied heavily on the excellent Udacity student Maeva's video walkthrough [study jam](https://www.youtube.com/watch?v=i6L2jLHV9j8&feature=youtu.be).
+

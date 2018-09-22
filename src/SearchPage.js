@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import * as BooksAPI from './BooksAPI'
-/*import escapeRegExp from 'escape-string-regexp'*/
 import Book from './Book'
 import './App.css'
 
@@ -10,16 +9,21 @@ class SearchPage extends Component {
     query: '',
     searchResults: []
   }
+  //update the server with user's query and handle errors in user input or case of failed search
     showResults = (query) => {
     if(query) {
       BooksAPI.search(query).then((searchResults) => {
-        this.setState({ searchResults: searchResults })
-        })  
-      } else {
-        console.log('no results');
-        this.setState({ searchResults: [] })
-        }       
-      }
+        if (searchResults.error) {
+          this.setState({ searchResults: [] });
+        } else {
+          this.setState({ searchResults: searchResults })
+        }
+      })  
+    } else {
+      this.setState({ searchResults: [] })
+      }       
+    }
+    // Pass this array to render
   updateQuery = (query) => {
     this.setState({ query: query })
     this.showResults(query);
