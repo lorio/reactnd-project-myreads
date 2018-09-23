@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
+import debounce from 'lodash.debounce'
 import * as BooksAPI from './BooksAPI'
 import Book from './Book'
 import './App.css'
@@ -23,10 +24,11 @@ class SearchPage extends Component {
       this.setState({ searchResults: [] })
       }       
     }
+  showResultsDebounced = debounce(this.showResults, 1000)
     // Pass this array to render
   updateQuery = (query) => {
     this.setState({ query: query })
-    this.showResults(query);
+    this.showResultsDebounced(query);
   }
   render(){
     return (
