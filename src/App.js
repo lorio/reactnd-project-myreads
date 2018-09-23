@@ -27,7 +27,7 @@ class BooksApp extends React.Component {
   render() {
     return (
       <div className="app">
-        <switch>
+        <Switch>
           <Route exact path='/' render={() => (
             <MainPage
               books={this.state.books}
@@ -42,7 +42,7 @@ class BooksApp extends React.Component {
               books={this.state.books}
             />
           )} />
-        </switch>  
+        </Switch>  
       </div>
     )
   }
