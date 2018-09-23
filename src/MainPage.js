@@ -1,39 +1,33 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
-/*import * as BooksAPI from './BooksAPI'*/
 import PropTypes from 'prop-types'
 import Book from './Book'
 import './App.css'
 
-class MainPage extends Component {
-  static propTypes = {
-       books: PropTypes.array.isRequired
-     }
- render() {
-  console.log(this.props.books)
-    return (
-      <div className="list-books">
-        <div className="list-books-title">
-          <h1>MyReads</h1>
-        </div>
-        <div className="list-books-content">
-          <div>
-            <div className="bookshelf">
-              <h2 className="bookshelf-title">Currently Reading</h2>
-              <div className="bookshelf-books">
-                <ol className="books-grid">
-                  {
-                    this.props.books
-                      .filter(book => book.shelf === 'currentlyReading')
-                      .map(book => (
-                        <li key={book.id}>
-                          <Book
-                            book = {book}
-                            updateShelf = {this.props.updateShelf}
-                            currentShelf = 'currentlyReading'
-                          />
-                        </li>
-                        ))
+const MainPage = (props) => {
+  return (
+    <div className="list-books">
+      <div className="list-books-title">
+        <h1>MyReads</h1>
+      </div>
+      <div className="list-books-content">
+        <div>
+          <div className="bookshelf">
+            <h2 className="bookshelf-title">Currently Reading</h2>
+            <div className="bookshelf-books">
+              <ol className="books-grid">
+                {
+                  props.books
+                    .filter(book => book.shelf === 'currentlyReading')
+                    .map(book => (
+                      <li key={book.id}>
+                        <Book
+                          book={book}
+                          updateShelf={props.updateShelf}
+                          currentShelf='currentlyReading'
+                        />
+                      </li>
+                    ))
                   }                
                 </ol>
               </div>
@@ -43,17 +37,17 @@ class MainPage extends Component {
               <div className="bookshelf-books">
                 <ol className="books-grid">
                   {
-                    this.props.books
+                    props.books
                       .filter(book => book.shelf === 'wantToRead')
                       .map(book => (
                         <li key={book.id}>
                           <Book
-                            book = {book}
-                            updateShelf = {this.props.updateShelf}
-                            currentShelf = 'wantToRead'
+                            book={book}
+                            updateShelf={props.updateShelf}
+                            currentShelf='wantToRead'
                           />
                         </li>
-                        ))
+                      ))
                   }               
                 </ol>
               </div>
@@ -63,17 +57,17 @@ class MainPage extends Component {
               <div className="bookshelf-books">
                 <ol className="books-grid">
                   {
-                    this.props.books
+                    props.books
                       .filter(book => book.shelf === 'read')
                       .map(book => (
                         <li key={book.id}>
                           <Book
-                            book = {book}
-                            updateShelf = {this.props.updateShelf}
-                            currentShelf = 'read'
+                            book={book}
+                            updateShelf={props.updateShelf}
+                            currentShelf='read'
                           />
                         </li>
-                        ))
+                      ))
                   }               
                 </ol>
               </div>
@@ -89,5 +83,9 @@ class MainPage extends Component {
       </div>
     )
   }
+
+MainPage.proopTypes = {
+  books: PropTypes.array.isRequired
 }
+
 export default MainPage;
