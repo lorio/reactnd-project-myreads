@@ -7,7 +7,7 @@ My project 6 for the Udacity Front-End Nanodegree is a book tracker. You can tra
 ## Instructions
 
 1. Download or clone the project to your computer 
-`git clone https://github.com/lorio/reactnd-project-myreads-starter.git`
+`git clone git@github.com:lorio/reactnd-project-myreads.git`
 2. Install all project dependencies with `npm install`
 3. Start the development server with `npm start`
 4. Search books by clicking the + button which takes you to a search input field. The page will fill with your results.
