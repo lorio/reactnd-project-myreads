@@ -16,8 +16,7 @@ My project 6 for the Udacity Front-End Nanodegree is a book tracker. You can tra
 7. when you open the app again, your can update it with your reading activity by selecting another bookshelf. 
 
 ## Dependencies
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). You can find more information on how to perform common tasks [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
-Starter files are provided in the Udacity Front-End Nanodegree and other [Udacity courses and tracks](https://www.udacity.com/courses/all).
+Starter files bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app) are provided in the Udacity Front-End Nanodegree and other [Udacity courses and tracks](https://www.udacity.com/courses/all). Used [lodash.debounce](https://www.npmjs.com/package/lodash.debounce),  and [React-router-dom](https://www.npmjs.com/package/react-router-dom) to improve user experience.
 
 ## Contributing
 
@@ -26,5 +25,5 @@ This repository is the starter code for _all_ Udacity students. Therefore, we mo
 For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Additional Resources
-Student forums on Slack, lessons, and a mentor session were helpful in completing this project. I also relied heavily on the excellent Udacity student Maeva's video walkthrough [study jam](https://www.youtube.com/watch?v=i6L2jLHV9j8&feature=youtu.be).
+Student forums on Slack, lessons, and a mentor session were helpful in completing this project. I also learned a lot from the excellent Udacity student Maeva's video walkthrough [study jam](https://www.youtube.com/watch?v=i6L2jLHV9j8&feature=youtu.be) and from my first submission review.
 
