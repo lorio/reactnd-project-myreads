@@ -25,7 +25,7 @@ class SearchPage extends Component {
       }       
     }
   showResultsDebounced = debounce(this.showResults, 1000)
-    // Pass this array to render
+    // Pass this array debounced for better experience to render
   updateQuery = (query) => {
     this.setState({ query: query })
     this.showResultsDebounced(query);
